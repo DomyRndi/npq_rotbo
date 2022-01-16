@@ -11,10 +11,10 @@
 
 在本实验中，要求分别使用基础搜索算法和 ***Deep QLearning*** 算法，完成机器人自动走迷宫。
 
-![](D:\PHOTO\typora照片\dqn_size10.gif)
+<img src="https://github.com/Antom2000/ZJU-CSE-AI-ML-DQN-Robot/blob/main/PHOTO/dqn_size10.gif" />
 
-<center><strong>图1 地图（size10）</strong>
-</center>
+<strong>图1 地图（size10）</strong>
+
 
 
 ​	如上图所示，左上角的红色椭圆既是起点也是机器人的初始位置，右下角的绿色方块是出口。
@@ -54,10 +54,10 @@ import torch
 3. 红色的圆是机器人初始位置
 4. 绿色的方块是迷宫的出口位置
 
-![](D:\PHOTO\typora照片\dqn_size10-1638271871100.gif)
+<img src="https://github.com/Antom2000/ZJU-CSE-AI-ML-DQN-Robot/blob/main/PHOTO/dqn_size10-1638271871100.gif" />
 
-<center><strong>图2 gif地图（size10）</strong>
-</center>
+<strong>图2 gif地图（size10）</strong>
+
 
 
 ###### Maze 类中重要的成员方法如下：
@@ -242,8 +242,8 @@ Maze of size (5, 5)
 
 ![img](data:image/png;base64,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)
 
-<center><strong>图3 基础搜索地图（size5）</strong>
-</center>
+<strong>图3 基础搜索地图（size5）</strong>
+
 
 
 - 若`maze_size=10`，运行基础搜索算法，最终成果如下：
@@ -256,8 +256,8 @@ Maze of size (10, 10)
 
 ![img](data:image/png;base64,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)
 
-<center><strong>图4 基础搜索地图（size10）</strong>
-</center>
+<strong>图4 基础搜索地图（size10）</strong>
+
 
 
 - 若`maze_size=20`，运行基础搜索算法，最终成果如下：
@@ -270,8 +270,8 @@ Maze of size (20, 20)
 
 ![img](data:image/png;base64,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)
 
-<center><strong>图5 基础搜索地图（size20）</strong>
-</center>
+<strong>图5 基础搜索地图（size20）</strong>
+
 
 
 ###### 部分代码如下：
@@ -351,12 +351,12 @@ def myDFS(maze):
 
 - 若`maze_size=3`，运行强化学习搜索算法，最终成果如下：
 
-![](D:\PHOTO\typora照片\dqn_size3.gif)
+<img src="https://github.com/Antom2000/ZJU-CSE-AI-ML-DQN-Robot/blob/main/PHOTO/image-20211209193708357.png" />
 
-<center><strong>图6 强化学习搜索gif地图（size3）</strong>
-</center>
+<strong>图6 强化学习搜索gif地图（size3）</strong>
 
-![image-20211209193708357](D:\PHOTO\typora照片\image-20211209193708357.png)
+
+<img src="https://github.com/Antom2000/ZJU-CSE-AI-ML-DQN-Robot/blob/main/PHOTO/dqn_size3.gif" />
 
 <center><strong>图7 训练结果</strong>
 </center>
@@ -364,43 +364,41 @@ def myDFS(maze):
 
 - 若`maze_size=5`，运行强化学习搜索算法，最终成果如下：
 
-![](D:\PHOTO\typora照片\dqn_size5.gif)
+<img src="https://github.com/Antom2000/ZJU-CSE-AI-ML-DQN-Robot/blob/main/PHOTO/dqn_size5.gif" />
 
-<center><strong>图8 强化学习搜索gif地图（size5）</strong>
-</center>
+<strong>图8 强化学习搜索gif地图（size5）</strong>
 
-![image-20211209194029128](D:\PHOTO\typora照片\image-20211209194029128.png)
+<img src="https://github.com/Antom2000/ZJU-CSE-AI-ML-DQN-Robot/blob/main/PHOTO/image-20211209194029128.png" />
 
-<center><strong>图9 训练结果</strong>
-</center>
+<strong>图9 训练结果</strong>
+
 
 
 - 若`maze_size=10`，运行强化学习搜索算法，最终成果如下：
 
-![](D:\PHOTO\typora照片\dqn_size10-1638273841747.gif)
+<img src="https://github.com/Antom2000/ZJU-CSE-AI-ML-DQN-Robot/blob/main/PHOTO/dqn_size10-1638273841747.gif" />
 
-<center><strong>图10 强化学习搜索gif地图（size10）</strong>
-</center>
+<strong>图10 强化学习搜索gif地图（size10）</strong>
 
-![image-20211209194050869](D:\PHOTO\typora照片\image-20211209194050869.png)
 
-<center><strong>图11 训练结果</strong>
-</center>
+<img src="https://github.com/Antom2000/ZJU-CSE-AI-ML-DQN-Robot/blob/main/PHOTO/image-20211209194050869.png" />
+
+<strong>图11 训练结果</strong>
+
 
 
 - 若`maze_size=11`，运行强化学习搜索算法，最终成果如下：
 
-![](D:\PHOTO\typora照片\dqn_size11.gif)
+<img src="https://github.com/Antom2000/ZJU-CSE-AI-ML-DQN-Robot/blob/main/PHOTO/dqn_size11.gif" />
 
-<center><strong>图12 强化学习搜索gif地图（size11）</strong>
-</center>
+<strong>图12 强化学习搜索gif地图（size11）</strong>
 
-![image-20211209194108924](D:\PHOTO\typora照片\image-20211209194108924.png)
 
-![image-20211209194651397](D:\PHOTO\typora照片\image-20211209194651397.png)
+<img src="https://github.com/Antom2000/ZJU-CSE-AI-ML-DQN-Robot/blob/main/PHOTO/image-20211209194108924.png" />
+<img src="https://github.com/Antom2000/ZJU-CSE-AI-ML-DQN-Robot/blob/main/PHOTO/image-20211209194651397.png" />
 
-<center><strong>图13 训练结果</strong>
-</center>
+<strong>图13 训练结果</strong>
+
 
 ​	经过测试，强化学习搜索算法可以快速给出走出迷宫的路径并且随着训练轮次增加，成功率也逐渐上升。当训练轮次足够时，最终后期准确率可以达到100%。
 
@@ -412,33 +410,33 @@ def myDFS(maze):
 
 - 若`maze_size=3`，运行***DQN***算法，最终成果如下：
 
-  ![image-20220110225441520](D:\PHOTO\typora照片\image-20220110225441520.png)
+  <img src="https://github.com/Antom2000/ZJU-CSE-AI-ML-DQN-Robot/blob/main/PHOTO/image-20220110225441520.png" />
 
-  <center><strong>图14 训练结果</strong>
-  </center>
+  <strong>图14 训练结果</strong>
+  
 
 - 若`maze_size=5`，运行***DQN***算法，最终成果如下：
 
-  ![image-20220110225441520](D:\PHOTO\typora照片\image-20220110225441520.png)
+  <img src="https://github.com/Antom2000/ZJU-CSE-AI-ML-DQN-Robot/blob/main/PHOTO/image-20220110225441520.png" />
 
-  <center><strong>图15 训练结果</strong>
-  </center>
+  <strong>图15 训练结果</strong>
+  
 
 - 若`maze_size=10`，运行***DQN***算法，最终成果如下：
 
-  ![image-20220110225441520](D:\PHOTO\typora照片\image-20220110225441520.png)
+  <img src="https://github.com/Antom2000/ZJU-CSE-AI-ML-DQN-Robot/blob/main/PHOTO/image-20220110225441520.png" />
 
-  <center><strong>图16 训练结果</strong>
-  </center>
+  <strong>图16 训练结果</strong>
+  
 
 #### 4.4 提交结果测试
 
 ##### 4.4.1 基础搜索算法测试
 
-![image-20211208160808475](D:\PHOTO\typora照片\image-20211208160808475.png)
+<img src="https://github.com/Antom2000/ZJU-CSE-AI-ML-DQN-Robot/blob/main/PHOTO/image-20211208160808475.png" />
 
-<center><strong>图17 基础搜索算法路径</strong>
-</center>
+<strong>图17 基础搜索算法路径</strong>
+
 
 
 
@@ -446,60 +444,60 @@ def myDFS(maze):
 
 ##### 4.4.2 强化学习算法（初级）
 
-<img src="D:\PHOTO\typora照片\image-20211130200955430.png" alt="image-20211130200955430" style="zoom:50%;" />
+<img src="https://github.com/Antom2000/ZJU-CSE-AI-ML-DQN-Robot/blob/main/PHOTO/image-20211130200955430.png" />
 
-<center><strong>图18 强化学习算法（初级）</strong>
-</center>
+<strong>图18 强化学习算法（初级）</strong>
+
 
 
 ​	用时0秒
 
 ##### 4.4.3 强化学习算法（中级）
 
-<img src="D:\PHOTO\typora照片\image-20211130200945686.png" alt="image-20211130200945686" style="zoom:50%;" />
+<img src="https://github.com/Antom2000/ZJU-CSE-AI-ML-DQN-Robot/blob/main/PHOTO/image-20211130200945686.png" />
 
-<center><strong>图19 强化学习算法（中级）</strong>
-</center>
+<strong>图19 强化学习算法（中级）</strong>
+
 
 
 ​	用时0秒
 
 ##### 4.4.4 强化学习算法（高级）
 
-<img src="D:\PHOTO\typora照片\image-20211130201010799.png" alt="image-20211130201010799" style="zoom:67%;" />
+<img src="https://github.com/Antom2000/ZJU-CSE-AI-ML-DQN-Robot/blob/main/PHOTO/image-20211130201010799.png" />
 
-<center><strong>图20 强化学习算法（高级）</strong>
-</center>
+<strong>图20 强化学习算法（高级）</strong>
+
 
 
 ​	用时0秒
 
 ##### 4.4.5 DQN算法（初级）
 
-<img src="D:\PHOTO\typora照片\image-20220110231101445.png" alt="image-20220110231101445" style="zoom:50%;" />
+<img src="https://github.com/Antom2000/ZJU-CSE-AI-ML-DQN-Robot/blob/main/PHOTO/image-20220110231101445.png" />
 
-<center><strong>图21 DQN算法（初级）</strong>
-</center>
+<strong>图21 DQN算法（初级）</strong>
+
 
 
 ​	用时2秒
 
 ##### 4.4.6 DQN算法（中级）
 
-<img src="D:\PHOTO\typora照片\image-20220110231113620.png" alt="image-20220110231113620" style="zoom:50%;" />
+<img src="https://github.com/Antom2000/ZJU-CSE-AI-ML-DQN-Robot/blob/main/PHOTO/image-20220110231113620.png" />
 
-<center><strong>图22 DQN算法（中级）</strong>
-</center>
+<strong>图22 DQN算法（中级）</strong>
+
 
 
 ​	用时3秒
 
 ##### 4.4.7 DQN算法（高级）
 
-<img src="D:\PHOTO\typora照片\image-20220110225954118.png" alt="image-20220110225954118" style="zoom:67%;" />
+<img src="https://github.com/Antom2000/ZJU-CSE-AI-ML-DQN-Robot/blob/main/PHOTO/image-20220110225954118.png" />
 
-<center><strong>图23 DQN算法（高级）</strong>
-</center>
+<strong>图23 DQN算法（高级）</strong>
+
 
 
 ​	用时105秒
